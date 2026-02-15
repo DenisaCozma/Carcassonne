@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bh24jo8yfyywe"]
+
+[ext_resource type="Script" uid="uid://otih6kt1pvan" path="res://board_layer.gd" id="1_0xm2m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ig7tw"]
+load_path = "res://.godot/imported/tiles.png-0d11a4bcdfb48056f67a66da241684a1.ctex"
+
+[node name="Main" type="Node2D" unique_id=748251791]
+
+[node name="BoardLayer" type="Node2D" parent="." unique_id=1475209572]
+script = ExtResource("1_0xm2m")
+tile_size = null
+
+[node name="Camera2D" type="Camera2D" parent="BoardLayer" unique_id=428447895]
+
+[node name="PlacedTiles" type="Node2D" parent="BoardLayer" unique_id=740049218]
+
+[node name="Highlights" type="Node2D" parent="BoardLayer" unique_id=1154126782]
+
+[node name="PreviewTile" type="Sprite2D" parent="BoardLayer" unique_id=257246777]
+light_mask = 2
+position = Vector2(72, 67)
+texture = SubResource("CompressedTexture2D_ig7tw")
+region_enabled = true
+region_rect = Rect2(0.677, 1.243, 128, 128)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1830222836]
+
+[node name="HUD" type="Control" parent="UI" unique_id=229579729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -586.0
+offset_top = -336.0
+offset_right = -583.0
+offset_bottom = -327.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightPanel" type="PanelContainer" parent="UI/HUD" unique_id=360932585]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_bottom = -373.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/RightPanel" unique_id=1691311416]
+layout_mode = 2
+
+[node name="Turn_ P1" type="Label" parent="UI/HUD/RightPanel/VBoxContainer" unique_id=325326030]
+layout_mode = 2
+
+[node name="Score 0-0" type="Label" parent="UI/HUD/RightPanel/VBoxContainer" unique_id=6196865]
+layout_mode = 2
+
+[node name="End Turn" type="Button" parent="UI/HUD/RightPanel/VBoxContainer" unique_id=1165744903]
+layout_mode = 2

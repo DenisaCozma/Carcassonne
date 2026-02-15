@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bh24jo8yfyywe"]
+
+[ext_resource type="Script" uid="uid://otih6kt1pvan" path="res://script/board_layer.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://celtjoktgt3kt" path="res://assets/Figure_Meeples_Base.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://faxag2sukcp4" path="res://assets/fundal_joc.jpg" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c2jsjy5faepub" path="res://script/GameHUD.gd" id="4_1bvp3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ig7tw"]
+load_path = "res://.godot/imported/tiles.png-0d11a4bcdfb48056f67a66da241684a1.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.2384446, 0.30977023, 0.31177023, 0.6313726)
+
+[node name="Main" type="Node2D" unique_id=748251791]
+
+[node name="BoardLayer" type="Node2D" parent="." unique_id=1475209572]
+script = ExtResource("1_0xm2m")
+
+[node name="Fundal" type="Sprite2D" parent="BoardLayer" unique_id=1634673894]
+position = Vector2(21.00011, 60.499977)
+scale = Vector2(6.8388886, 5.8884616)
+texture = ExtResource("2_h2yge")
+
+[node name="Camera2D" type="Camera2D" parent="BoardLayer" unique_id=428447895]
+
+[node name="PlacedTiles" type="Node2D" parent="BoardLayer" unique_id=740049218]
+
+[node name="Highlights" type="Node2D" parent="BoardLayer" unique_id=1154126782]
+
+[node name="PreviewTile" type="Sprite2D" parent="BoardLayer" unique_id=257246777]
+light_mask = 2
+position = Vector2(72, 69)
+texture = SubResource("CompressedTexture2D_ig7tw")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="MeepleTemplate" type="Sprite2D" parent="BoardLayer" unique_id=1513337401]
+visible = false
+texture = ExtResource("2_0xm2m")
+region_rect = Rect2(0, 0, 80, 80)
+
+[node name="Meeples" type="Node2D" parent="BoardLayer" unique_id=114068069]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=386307587]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=229579729]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_bottom = 9.0
+grow_horizontal = 0
+script = ExtResource("4_1bvp3")
+
+[node name="RightPanel" type="PanelContainer" parent="CanvasLayer/HUD" unique_id=360932585]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 396.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/RightPanel" unique_id=1691311416]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CurrentTurn" type="Label" parent="CanvasLayer/HUD/RightPanel/VBoxContainer" unique_id=325326030]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/HUD/RightPanel/VBoxContainer" unique_id=1989850821]
+layout_mode = 2
+
+[node name="Player1Info" type="Label" parent="CanvasLayer/HUD/RightPanel/VBoxContainer" unique_id=1319941192]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Player2Info" type="Label" parent="CanvasLayer/HUD/RightPanel/VBoxContainer" unique_id=6196865]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/HUD/RightPanel/VBoxContainer" unique_id=51120342]
+layout_mode = 2
+
+[node name="TilesRemaining" type="Label" parent="CanvasLayer/HUD/RightPanel/VBoxContainer" unique_id=1111472993]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
